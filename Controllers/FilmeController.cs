@@ -70,7 +70,7 @@ namespace LocadoraAPI.Controllers
                 return BadRequest(ModelState);
             }
             new FilmesService().Inserir(filme);
-            return Ok("Filme cadastrado com sucesso!");
+            return Ok(Listar(null, null));
         }
 
         // Edição de Filmes
@@ -80,7 +80,7 @@ namespace LocadoraAPI.Controllers
         {
             FilmesService fm = new FilmesService();
             fm.Editar(id, filme);
-            return Ok("Filme atualizado com sucesso!");
+            return Ok(Listar(null, null));
         }
 
         // Exclusão de Filmes
@@ -89,7 +89,7 @@ namespace LocadoraAPI.Controllers
         public IActionResult Delete(int id)
         {
             new FilmesService().Excluir(id);
-            return Ok("Exclusão feita com sucesso!");
+            return Ok(id);
         }
 
     }
